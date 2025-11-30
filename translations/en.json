@@ -1,0 +1,33 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Planes Nearby",
+        "description": "Track aircraft near a location entity using ADSB.fi open data. The integration will query ADSB.fi based on the entity's latitude and longitude.",
+        "data": {
+          "name": "Name",
+          "location_entity_id": "Location entity ID (e.g. zone.home, person.you)",
+          "distance": "Radius (km)"
+        }
+      }
+    },
+    "error": {
+      "invalid_entity": "Entity not found or missing latitude/longitude attributes."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Planes Nearby options",
+        "description": "Update the reference entity or radius.",
+        "data": {
+          "location_entity_id": "Location entity ID",
+          "distance": "Radius (km)"
+        }
+      }
+    },
+    "error": {
+      "invalid_entity": "Entity not found or missing latitude/longitude attributes."
+    }
+  }
+}
