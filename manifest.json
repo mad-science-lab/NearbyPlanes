@@ -1,10 +1,10 @@
 {
-  "domain": "planes_nearby",
-  "name": "Planes Nearby",
+  "domain": "nearby_planes",
+  "name": "Nearby Planes",
   "version": "0.1.0",
-  "documentation": "https://example.com/planes_nearby",
+  "documentation": "https://github.com/mad-science-lab/NearbyPlanes/",
   "requirements": [],
-  "codeowners": ["@your-github-handle"],
+  "codeowners": ["@mad-science-lab"],
   "config_flow": true,
   "iot_class": "cloud_polling",
   "integration_type": "service"
