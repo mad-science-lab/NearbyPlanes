@@ -1,0 +1,21 @@
+  {% set planes = (state_attr('sensor.planes_nearby', 'planes') or []) | sort(attribute='distance') %}
+  {% if planes | length == 0 %}
+  No planes in range.
+  {% else %}
+  {% for p in planes[0:5] %}
+  **{{ loop.index }}. {{ (p.flight or 'Unknown') | trim }}**
+
+  • Type: {{ p.description or 'N/A' }}  
+  • Alt (baro): {{ p.alt_baro if p.alt_baro is not none else 'N/A' }}  
+  • Speed over Ground: {{p.ground_speed or "N/A"}}
+  • Heading: {{p.bearing or "N/A"}} 
+  • Nav modes: {% if p.nav_modes %}{{ p.nav_modes | join(', ') }}{% else %}-{% endif %}  
+  • Distance: {{ p.distance or 'error' }}  
+  • Postion: Lat: {{p.lat or 'N/A'}} Lon: {{p.lon or 'N/A'}}
+
+{% set ref = (p.flight or p.hex or 'N/A') | trim %}
+[View on FlightRadar24](https://www.flightradar24.com/{{ ref }})
+
+
+  {% endfor %}
+  {% endif %}
